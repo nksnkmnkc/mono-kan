@@ -1,0 +1,14 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+
+    <div class="col-md-3">
+      <h2>プロフィール</h2>
+      <%= render 'info', teacher: @teacher %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>使用履歴一覧</h2>
+      <%= render 'utilizations/index',items: @items %>
+      
+  </div>
+</div>
