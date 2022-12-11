@@ -29,7 +29,7 @@ class Public::TeachersController < ApplicationController
     #is_deletedカラムにフラグを立てる（defaultはfalse)
     @teacher.update(ir_deleted: true)
     reset_session
-      flash[:notice] = ""
+      flash[:notice] = "退会が完了しました"
     redirect_to root_path
   end
 
