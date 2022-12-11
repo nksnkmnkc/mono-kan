@@ -29,7 +29,7 @@ class Public::TeachersController < ApplicationController
     #is_deletedカラムにフラグを立てる（defaultはfalse)
     @teacher.update(ir_deleted: true)
     reset_session
-      flash[:notice] = "退会が完了しました"
+      flash[:notice] = "アカウントの削除が完了しました"
     redirect_to root_path
   end
 
@@ -38,6 +38,6 @@ class Public::TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit(:first_name, :last_name, :grade, :subject, :club, :another)
+    params.require(:teacher).permit(:first_name, :last_name, :grade, :subject, :club, :another, :profile_image)
   end
 end

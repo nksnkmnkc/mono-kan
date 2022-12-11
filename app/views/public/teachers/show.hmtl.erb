@@ -8,7 +8,34 @@
 
     <div class="col-md-8 offset-md-1">
       <h2>使用履歴一覧</h2>
-      <%= render 'utilizations/index',items: @items %>
-      
+        <table class = "table table-hover table-inverse">
+           <thead>
+            <tr>
+             <th class="table-active">使用日</th>
+             <th class="table-active">商品名</th>
+             <th class="table-active">使用個数</th>
+             <th class="table-active">使用理由</th>
+            </tr>
+            </thead>
+            <tbody>
+              <% @utilizations.each do |utilization| %>
+                <tr>
+                  <td><%= utilization.created_at.strftime('%Y/%m/%d') %></td>
+                  <% utilization.utilization_items.each do |utilization_item| %>
+                   <td><%= utilization_item.item.name %></td>
+                   <td><%= utilization_item.item_count %> </td>
+                  <% end %>
+                  <td><%= usage_rule_i18n %></td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+        <% else %>
+           <p class="container">使用履歴がありません。</p>
+        <% end %>
+
+        <h2>ブックマーク一覧</h2>
+        <table class = "table table-hover table-inverse">
+    </div>
   </div>
 </div>
