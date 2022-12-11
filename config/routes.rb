@@ -23,6 +23,7 @@ scope module: :public do
    resource :bookmarks, only: [:create, :destroy]
   get "searches"=>"items#searches"
   get "search_word" => "items#search_word"
+  end
 end
 
 scope module: :public do
@@ -42,8 +43,8 @@ end
 
 
 # 管理者用
-namespace : admin do
-  root to : "homes#top"
+namespace :admin do
+  root to: "homes#top"
 
   resources :items
 
