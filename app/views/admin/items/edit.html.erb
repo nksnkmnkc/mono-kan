@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row mt-4">
+
+    <h2>商品編集</h2>
+      <div class="col-md-8 mt-4">
+        <table class="table table-borderless">
+          <%= form_with model: @item, url: admin_item_path, method: :patch, local:true do |f| %>
+            <tr>
+              <td>商品画像</td>
+              <td><%= f.file_field :item_image %></td>
+            </tr>
+            <tr>
+              <td>商品名</td>
+              <td><%= f.text_field :name %></td>
+            </tr>
+            <tr>
+              <td>商品詳細</td>
+              <td><%= f.text_area :memo %></td>
+            </tr>
+            <tr>
+              <td>ジャンル</td>
+              <td><%= f.collection_select :genre_id, Genre.all, :id, :genre, include_blank: "選択してください" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit '変更を保存', class:"btn btn-success" %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+
+  </div>
+</div>
