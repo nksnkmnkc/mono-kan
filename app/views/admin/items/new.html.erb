@@ -1,0 +1,33 @@
+<div class="container m-5">
+  <div class="row">
+    <h3>消耗品新規登録</h3>
+    
+      <div class="col-8 md-8 offset-2 ">
+          
+      <%= form_with model: @item, url:admin_items_path, method: :post do |f|%>
+       <table>
+        <tr>
+          <th>消耗品画像</th><th><%= f.file_field :image, accept: "image/*" %></th>
+        </tr>
+        <tr>
+          <th>商品名</th>
+          <td><%= f.text_field :name, placeholder: "商品名",class:"form-label"%></td>
+        </tr>
+        <tr>
+          <th>商品詳細文</th>
+          <td><%= f.text_area:explanation, placeholder: "ここに詳細文を記述します(例) 購入先：◯◯商会 規格：厚口、桃色", rows: '5'%></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "選択してください") %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit'新規登録',class: 'btn btn-success' %></td>
+        </tr>
+       </table>
+       <%end%>
+      </div>
+      
+  </div>
+</div>

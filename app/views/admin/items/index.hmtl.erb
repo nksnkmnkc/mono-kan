@@ -1,0 +1,41 @@
+<div class="container m-5">
+  <div class="mt-4">
+    <div class="col-md-auto">
+
+      <div class="row mt-4">
+        <div class="col-3">
+          <h2>商品一覧</h2>
+        </div>
+        <div class="col-8 text-right">
+          <%= link_to "＋", new_admin_product_path, class:"h1 text-decoration-none text-dark", 'data-turbolinks': false  %>
+        </div>
+      </div>
+
+      <div class="col-12 mt-4 mb-5">
+        <table class="table">
+          <thead class="table table-secondary">
+            <tr>
+              <th>消耗品ID</th>
+              <th>商品名</th>
+              <th>ジャンル</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @items.each do |itemt|%>
+          <tr>
+           <td><%= item.id %></td>
+           <td ><%= link_to item.name, admin_item_path(item.id),class:"text-dark" %></td>
+           <td><%= item.genre.name %></td>
+         <%end%>
+         </tbody>
+       </table>
+     </div>
+
+     <!--ページネーション～kaminari～-->
+     <div class="col-2 offset-5">
+      <%= paginate @items, theme: 'bootstrap-5' %>
+     </div>
+
+    </div>
+  </div>
+</div>
