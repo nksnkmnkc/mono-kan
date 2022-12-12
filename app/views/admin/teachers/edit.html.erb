@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 my-3">
+      <% if @teacher.errors.any? %>
+        <%= @teacher.errors.count %>件のエラーが発生しました。
+        <ul>
+          <% @teacher.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      
+      <h3 class="mt-2"><%= @teacher.last_name %> <%= @teacher.first_name %>さんの情報編集</h3>
+      <%= form_with model: @teacher, url: admin_teacher_path(@teacher), method: :patch do |f| %>
+      <table class="table table-borderless offset-2">
+        <tbody>
+          <tr>
+            <th>先生ID</th>
+            <td><%= @teacher.id %></td>
+          </tr>
+          <tr>
+            <th>名前</th>
+            <td><%= f.text_field :last_name, class:"form-control" %></td>
+            <td><%= f.text_field :first_name, class:"form-control" %></td>
+          </tr>
+          <tr>
+      　　  　<th>学年</th>
+      　　　　<td><%= f.text_field :grade, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th>教科</th>
+            <td><%= f.text_field :subject, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th>部活</th>
+            <td><%= f.text_field :club, class:'form-control' %></td>
+          </tr>
+          <tr>
+            <th>その他</th>
+            <td><%= f.text_field :another, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= f.text_field :email, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th>ステータス</th>
+            <td>
+             <%= f.radio_button :is_deleted, false %>
+             <%= f.label :is_deleted, "有効", value: false %>
+             <%= f.radio_button :is_deleted, true %>
+             <%= f.label :is_deleted, "削除済み", value: true %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group col-md-2 offset-5">
+        <%= f.submit "変更を保存", class:'btn btn-success  inline-block px-4' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

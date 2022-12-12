@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 my-3 offset-2">
+
+      <h3><%= @teacher.last_name %><%= @teacher.first_name %>さんの情報詳細</h3>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th class="text-left">先生ID</th>
+            <td><%= @teacher.id %></td>
+          </tr>
+          <tr>
+            <th class="text-left">名前</th>
+            <td><%= @teacher.last_name %> <%= @teacher.first_name %></td>
+          </tr>
+          <tr>
+          <tr>
+            <th class="text-left">学年</th>
+            <td><%= @teacher.grade %></td>
+          </tr>
+          <tr>
+            <th class="text-left">教科</th>
+            <td><%= @teacher.subject %></td>
+          </tr>
+          <tr>
+            <th class="text-left">部活</th>
+            <td><%= @teacher.club %></td>
+          </tr>
+          <tr>
+            <th class="text-left">その他</th>
+            <td><%= @teacher.another %></td>
+          </tr>
+          <tr>
+            <th class="text-left">メールアドレス</th>
+            <td><%= @teacher.email %></td>
+          </tr>
+          <tr>
+            <th style="width: 150px" class="align-middle">ステータス</th>
+            <td>
+              <% if @customer.is_deleted %>
+               <p class="text-muted font-weight-bold align-middle">削除済み</p>
+              <% else %>
+              <P class="text-success font-weight-bold">有効</P>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="offset-md-3">
+        <%= link_to "編集する", edit_admin_teacher_path(@teacher.id), class: "btn btn-success mr-5 inline-block" %>
+        <%= link_to "使用報告一覧を見る", admin_root_path, class: "btn btn-primary me-auto inline-block" %>
+      </div>
+
+    </div>
+  </div>
+</div>
