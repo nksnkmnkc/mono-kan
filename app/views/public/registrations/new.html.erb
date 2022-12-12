@@ -5,12 +5,12 @@
       <%= form_with model: @teacher, url:teacher_registration_path, local: true do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
 
-      <div class = "form-group row mt-4">
+      <div class="form-group row mt-4">
         <%= f.label :"名前", class:"col-2" %>
         <%= f.label :"（姓）", class:"col-1" %>
-        <%= f.text_field :last_name, autofocus: true, placeholder:"令和" , class:"col-3" %>
+        <%= f.text_field :last_name, autofocus: true, placeholder:"令和" , class:"col-3 name" %>
         <%= f.label :"（名）",class:"col-1"%>
-        <%= f.text_field :first_name, autofocus: true, placeholder:"道子", class:"col-3" %>
+        <%= f.text_field :first_name, autofocus: true, placeholder:"道子", class:"col-3 name" %>
       </div>
 
       <div class="form-group row">
@@ -20,22 +20,22 @@
 
       <div class="form-group row">
         <%= f.label :"学年", class:"col-4" %>
-        <%= f.text_field :grade, autofocus: true, placeholder:"1年", class:"col-5" %>
+        <%= f.text_field :grade, autofocus: true, placeholder:"1年", class:"col-5 name" %>
       </div>
 
       <div class="form-group row">
         <%= f.label :教科, class:"col-4" %>
-        <%= f.text_field :subject, autofocus: true, placeholder:"国語", class:"col-5" %>
+        <%= f.text_field :subject, autofocus: true, placeholder:"国語", class:"col-5 name" %>
       </div>
 
       <div class="form-group row">
         <%= f.label :"部活", class:"col-4" %>
-        <%= f.text_field :club, autofocus: true, placeholder:"野球部", class:"col-5" %>
+        <%= f.text_field :club, autofocus: true, placeholder:"野球部", class:"col-5 name" %>
       </div>
 
       <div class="form-group row">
         <%= f.label :"その他", class:"col-4" %>
-        <%= f.text_field :another, autofocus: true, placeholder:"図書委員会", class:"col-5" %>
+        <%= f.text_field :another, autofocus: true, placeholder:"図書委員会", class:"col-5 name" %>
       </div>
 
       <div class="form-group row">

@@ -30,8 +30,7 @@ scope module: :public do
   get "teachers/my_page" => "teachers#show"
   get 'teachers/information/edit' => 'teachers#edit'
   patch "teachers/information" => "teachers#update"
-  get "teachers/unsubscribe"=>"customers#unsubscribe",as:"unsubscribe"
-  patch "customers/withdrawal"=>"customers#withdrawal",as:"withdrawal"
+  patch "teahers/delete_status"=>"teachers#is_deleted",as:"is_deleted"
 end
 
 scope module: :public do
