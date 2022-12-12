@@ -58,11 +58,16 @@ ActiveRecord::Schema.define(version: 2022_12_11_011803) do
   end
 
   create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "items", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.string "name", null: false
+    t.text "memo", null: false
+    t.date "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -87,6 +92,10 @@ ActiveRecord::Schema.define(version: 2022_12_11_011803) do
   end
 
   create_table "utilizations", force: :cascade do |t|
+    t.integer "teacher_id", null: false
+    t.integer "item_id", null: false
+    t.integer "usage_rule", null: false
+    t.integer "item_count", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

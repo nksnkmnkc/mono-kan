@@ -1,0 +1,16 @@
+<div class="d-flex " >
+  <% items.each do |item| %>
+    <div class="card m-1" style="width: 12rem;">
+      <div class="card-body">
+        <%= link_to item_path(item.id), class:'text-dark' do %>
+          <% if item.image.attached? %>
+          <%= image_tag item.image, size:"150x80" %>
+        <% else %>
+          <%= image_tag 'no_image', size:"150x80" %>
+        <% end %>
+       <p class="card-title"><%= item.name %></p>
+       <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
