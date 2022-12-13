@@ -5,8 +5,8 @@ class Teacher < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   #アソシエーション
-  has_many :utilizations, dependent: :destroy
-  has_many :bookmarks, dependent: :destroy
+  has_many :utilizations, dependent: :destroy #使用
+  has_many :bookmarks, dependent: :destroy #ブックマーク
 
   #バリテーション
   validates :name, presence:true, length: { minimum: 1, maximum: 20 }
