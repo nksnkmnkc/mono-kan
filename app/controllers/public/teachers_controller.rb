@@ -39,7 +39,7 @@ class Public::TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit(:first_name, :last_name, :grade, :subject, :club, :another, :profile_image)
+    params.require(:teacher).permit(:name, :grade, :subject, :club, :another, :profile_image)
   end
 
   def ensure_guest_teacher

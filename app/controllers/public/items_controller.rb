@@ -1,5 +1,5 @@
 class Public::ItemsController < ApplicationController
-  before_action :authenticate_admin!
+  #before_action :authenticate_admin!
 
   #消耗品一覧画面へのアクション
   def new

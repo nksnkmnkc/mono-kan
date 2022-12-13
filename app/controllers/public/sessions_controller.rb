@@ -35,7 +35,7 @@ class Public::SessionsController < Devise::SessionsController
     ##取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別＋会員ではない（退会した）アカウントなら弾く
        if @teacher.valid_password?(params[:teacher][:password]) && (@teacher.is_deleted == true)
           flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
-           redirect_to new_customer_registration_path
+           redirect_to new_teacher_registration_path
        end
     end
 end
