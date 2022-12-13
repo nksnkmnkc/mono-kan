@@ -10,7 +10,7 @@
         </ul>
       <% end %>
       
-      <h3 class="mt-2"><%= @teacher.last_name %> <%= @teacher.first_name %>さんの情報編集</h3>
+      <h3 class="mt-2"><%= @teacher.name %>さんの情報編集</h3>
       <%= form_with model: @teacher, url: admin_teacher_path(@teacher), method: :patch do |f| %>
       <table class="table table-borderless offset-2">
         <tbody>
@@ -20,9 +20,7 @@
           </tr>
           <tr>
             <th>名前</th>
-            <td><%= f.text_field :last_name, class:"form-control" %></td>
-            <td><%= f.text_field :first_name, class:"form-control" %></td>
-          </tr>
+            <td><%= f.text_field :name, class:"form-control" %></td>
           <tr>
       　　  　<th>学年</th>
       　　　　<td><%= f.text_field :grade, class:"form-control" %></td>

@@ -14,7 +14,7 @@
 
         <!-- ログインに成功した場合 -->
         <% if teacher_signed_in? %>
-          <p class="text-left text-light ml-5">ようこそ、<%= current_customer.last_name %>さん！</p>
+          <p class="text-left text-light ml-5">ようこそ、<%= current_teacher.name %>さん！</p>
         <% end %>
 
         <!--teacherでログインしている時-->
@@ -42,7 +42,7 @@
             <li><%= link_to "新規登録", new_teacher_registration_path, class:'nav-link text-white btn btn-outline-secondary' %></li>
             <li><%= link_to "消耗品一覧", items_path, class:'nav-link text-white btn btn-outline-secondary' %></li>
             <li><%= link_to "ログイン", new_teacher_session_path,  class:'nav-link text-white btn btn-outline-secondary' %></li>
-            <li><%= link_to "ゲストログイン（閲覧用）", teachers_guest_sign_in_path, method: :post, class:'nav-link text-white btn btn-outline-secondary' %></li>
+            <li><%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class:'nav-link text-white btn btn-outline-secondary' %></li>
          </ul>
          <!--<div><%#= render 'layouts/search' %></div>-->
         <% end %>

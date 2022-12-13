@@ -14,7 +14,7 @@
        <% @teachers.each do |teacher| %>
         <tr>
           <td><%= teacher.id %></td>
-          <td><%= link_to teacher.last_name, admin_teacher_path(teacher) %><%= link_to teacher.first_name, admin_teacher_path(teacher) %></td>
+          <td><%= link_to teacher.name, admin_teacher_path(teacher) %></td>
           <td>
            <% if teacher.is_deleted %>
            <p class="text-muted font-weight-bold">削除済み</p>
