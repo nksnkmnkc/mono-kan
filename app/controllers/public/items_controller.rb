@@ -2,8 +2,8 @@ class Public::ItemsController < ApplicationController
   #before_action :authenticate_admin!
 
   #消耗品一覧画面へのアクション
-  def new
-    @item = Item.new
+  def index
+    @items = Item.all
     @genres = Genre.all
   end
 
@@ -20,5 +20,5 @@ class Public::ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:genre_id, :name, :image, :memo, :start_time)
   end
-  
+
 end
