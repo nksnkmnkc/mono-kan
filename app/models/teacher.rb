@@ -18,9 +18,13 @@ class Teacher < ApplicationRecord
 
   #ゲストログイン
   def self.guest
-   find_or_create_by!(email: 'guest@example.com') do |user|
-     user.password = SecureRandom.urlsafe_base64
-     user.name = "ゲスト"
+   find_or_create_by!(email: 'guest@example.com') do |teacher|
+     teacher.password = SecureRandom.urlsafe_base64
+     teacher.name = "ゲスト"
+     teacher.grade = "２年"
+     teacher.subject ="数学"
+     teacher.club = "卓球部"
+     teacher.another = "放送委員会"
    end
   end
 

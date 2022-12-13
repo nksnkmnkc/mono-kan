@@ -1,6 +1,6 @@
 class Public::TeachersController < ApplicationController
   before_action :authenticate_teacher!
-  before_action :ensure_guest_user, only: [:edit]
+  before_action :ensure_guest_teacher, only: [:edit]
 
   #マイページへのアクション
   def show
@@ -42,10 +42,10 @@ class Public::TeachersController < ApplicationController
     params.require(:teacher).permit(:first_name, :last_name, :grade, :subject, :club, :another, :profile_image)
   end
 
-  def ensure_guest_user
-    @user = User.find(params[:id])
-    if @user.name == "ゲスト"
-      redirect_to user_path(current_user) , notice: 'ゲストはプロフィール編集画面へ遷移できません。'
+  def ensure_guest_teacher
+    @teacher = Teacher.find(params[:id])
+    if @teacher.name == "ゲスト"
+      redirect_to teachers_my_page_path(current_teacher) , notice: 'ゲストはプロフィール編集画面へ遷移できません。'
     end
   end
 
