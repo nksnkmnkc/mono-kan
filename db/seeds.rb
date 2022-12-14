@@ -98,7 +98,7 @@ item2 = Item.create(
         genre_id: 1,
         name: "消しゴム",
         memo: "01サイズ")
-item2.image.attach(io: File.open(Rails.root.join("app/assets/images/kesigomu.jpg")), filename: "kesigomu.jpg")
+item2.image.attach(io: File.open(Rails.root.join("app/assets/images/keshigomu.jpg")), filename: "keshigomu.jpg")
 
 item3 = Item.create(
         id: 3,

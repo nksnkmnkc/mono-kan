@@ -14,7 +14,7 @@ class Public::UtilizationsController < ApplicationController
  #使用確定処理
   def create
     @utilization = current_teacher.utilizations.new(utilization_params)
-    @utilization.save
+    @utilization.save!
     redirect_to teachers_my_page_path
   end
 

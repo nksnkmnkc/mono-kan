@@ -5,6 +5,7 @@ class Public::TeachersController < ApplicationController
   #マイページへのアクション
   def show
     @teacher = current_teacher
+    @utilizations  = current_teacher.utilizations
   end
 
   #登録情報編集へのアクション

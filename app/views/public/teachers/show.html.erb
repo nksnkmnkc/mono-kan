@@ -22,10 +22,8 @@
                 <% @utilizations.each do |utilization| %>
                   <tr>
                     <td><%= utilization.created_at.strftime('%Y/%m/%d') %></td>
-                    <% utilization.utilization_items.each do |utilization_item| %>
-                     <td><%= utilization_item.item.name %></td>
-                     <td><%= utilization_item.item_count %> </td>
-                    <% end %>
+                     <td><%= utilization.item.name %></td>
+                     <td><%= utilization.item_count %> </td>
                     <td><%#= usage_rule_i18n %></td>
                   </tr>
                 <% end %>

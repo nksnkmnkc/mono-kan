@@ -10,6 +10,7 @@ class Public::ItemsController < ApplicationController
   #消耗品詳細画面へのアクション
   def show
     @item = Item.find(params[:id])
+    @utilization_item = Utilization.new
     @genres = Genre.all
   end
 

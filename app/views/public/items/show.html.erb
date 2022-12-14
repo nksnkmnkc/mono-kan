@@ -1,10 +1,10 @@
 <div class="container m-5">
   <div class="row">
-    
+
      <div class="col-md-2">
       <%= render 'genre_form',genres: @genres %>
      </div>
-     
+
      <div class="col-md-4 offset-1">
         <% if @item.image.attached? %>
           <%= image_tag @item.image, size: "300x200" %>
@@ -12,21 +12,20 @@
           <%= image_tag 'no_image', size: "300x200" %>
         <% end %>
      </div>
-     
+
      <div class="col-md-4 ">
-     
+
           <h3><%= @item.name %></h3>
           <p><%= @item.memo %></p>
-          
-              <%= form_with model: @item, url: items_path, method: :post do |f| %>
+
+              <%= form_with model: @utilization_item, url: utilizations_path, method: :post do |f| %>
                <%= f.label :item_count, "使用個数" %>
                 <%= f.select :item_count, [1,2,3,4,5,6,7,8,9,10] %>
-               <%= f.hidden_field :item_id, :value => @item.id %>
-                 <!--#第一引数にオブジェクト名item_id、第二引数部分にvalueで受け渡す値 @item.idを指定-->
-                 <!--#cartitem controllerの cart_items.find_by(item_id:に送ることができる-->
+                <%= f.hidden_field :item_id, value: @item.id %>
+                <%= f.hidden_field :usage_rule, value: 1 %>
                <%= f.submit "使用報告する", class:'btn btn-success' %>
                <% end %>
-               
+
     </div>
   </div>
 </div>
