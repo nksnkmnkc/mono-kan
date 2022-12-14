@@ -43,7 +43,7 @@ class Public::TeachersController < ApplicationController
   end
 
   def ensure_guest_teacher
-    @teacher = Teacher.find(params[:id])
+    @teacher = Teacher.find
     if @teacher.name == "ゲスト"
       redirect_to teachers_my_page_path(current_teacher) , notice: 'ゲストはプロフィール編集画面へ遷移できません。'
     end

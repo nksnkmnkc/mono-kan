@@ -7,12 +7,14 @@ class Item < ApplicationRecord
   
   Genre.select(:name)
   
+  #商品画像を扱うための記述
   has_one_attached :image
   
   #バリテーション
   validates:name,presence: true,length: { minimum: 1, maximum: 20 }
   validates:memo, presence: true,length: { minimum: 1, maximum: 200 }
   
+  #商品画像を扱うための記述
   def get_image(width,height)
     if image.attached?
       image.variant(resize_to_limit: [width, height]).processed
