@@ -1,1 +1,30 @@
-<h1>Topページ</h1>
+<div class="container mt-4 mb-5 ">
+  <div class="row">
+
+    <div class="col-md-2">
+      <%= render '/public/items/genre_form',genres: @genres %>
+    </div>
+
+    <div class= "col-9">
+      <%= image_tag 'hometop_image.jpg', style:'width: 600px; height: 300px; position: relative;' %>
+      <p style='position:absolute; top:100px; left:230px; font-size:40px;'>
+        Mono-Kan
+      </p>
+      <p style='position:absolute; top:150px; left:200px; font-size:20px;'>
+        みんなで消耗品を管理しよう!
+      </p>
+    </div>
+
+    <div class="rowmt-3">
+      <div class="col-3"></div>
+      <h2>新着商品</h2>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-10 offset-2 ">
+        <%#= render '/public/items/index',items: @items %>
+      </div>
+    </div>
+
+  </div>
+</div>
