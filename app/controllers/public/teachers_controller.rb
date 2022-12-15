@@ -29,7 +29,7 @@ class Public::TeachersController < ApplicationController
   def is_deleted
     @teacher = current_teacher
     #is_deletedカラムにフラグを立てる（defaultはfalse)
-    @teacher.update(ir_deleted: true)
+    @teacher.update(is_deleted: true)
     reset_session
       flash[:notice] = "アカウントの削除が完了しました"
     redirect_to root_path
