@@ -10,7 +10,10 @@ module MonoKan
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-
+  
+  #使用理由を日本語化する。Railsアプリケーションを日本語対応させるための国際化（i18n）を使用する。
+    config.i18n.default_locale = :ja
+    
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
