@@ -1,3 +1,29 @@
 <div class="container mt-5">
-  <%= render "admin/utilizations/index", utilizations: @utilizations %>
+  <div class="row">
+
+    <div class="col-12">
+      <h3>使用報告一覧</h3>
+    </div>
+    <table class="table">
+      <thead>
+        <tr class="table-light table-hover">
+          <th scope="col-3">使用日時</th>
+          <th scope="col-3">使用者</th>
+          <th scope="col-1">使用個数</th>
+          <th scope="col-3">使用理由</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @utilizations.each do |utilization| %>
+        <tr>
+          <td><%= utilization.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= utilization.teacher.name %></td>
+          <td><%= utilization.utilization_items.sum(:item_count) %></td>
+          <td><%= utilization.usage_rule %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
 </div>
