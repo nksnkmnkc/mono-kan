@@ -15,17 +15,30 @@
 
      <div class="col-md-4 ">
 
-          <h3><%= @item.name %></h3>
-          <p><%= @item.memo %></p>
+       <h3><%= @item.name %></h3>
+       <p><%= @item.memo %></p>
+          <div class="row col-md-4 ">
+          <%= form_with model: @utilization_item, url: utilizations_path, method: :post do |f| %>
+          <!--使用個数選択 -->
+            <%= f.label :item_count, "使用個数" %>
+            <%= f.select :item_count, [1,2,3,4,5,6,7,8,9,10] %>
+          <!-- 使用理由選択 -->
+            <%= f.label :usage_rule, "使用理由" %>
+            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(0) %>
+            <%= f.label :usage_rule, Utilization.usage_rules_i18n[:individual] %>
+            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(1) %>
+            <%= f.label :usage_rule, Utilization.usage_rules_i18n[:classwork] %>
+            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(2) %>
+            <%= f.label :usage_rule, Utilization.usage_rules_i18n[:club_activites] %>
+            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(3) %>
+            <%= f.label :usage_rule, Utilization.usage_rules_i18n[:committee] %>
+            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(4) %>
+            <%= f.label :usage_rule, Utilization.usage_rules_i18n[:event] %>
 
-              <%= form_with model: @utilization_item, url: utilizations_path, method: :post do |f| %>
-               <%= f.label :item_count, "使用個数" %>
-                <%= f.select :item_count, [1,2,3,4,5,6,7,8,9,10] %>
-                <%= f.hidden_field :item_id, value: @item.id %>
-                <%= f.hidden_field :usage_rule, value: 1 %>
-               <%= f.submit "使用報告する", class:'btn btn-success' %>
-               <% end %>
-
+           <%= f.hidden_field :item_id, value: @item.id %>
+           <%= f.submit "使用報告する", class:'btn btn-success' %>
+           <% end %>
+          </div>
     </div>
   </div>
 </div>
