@@ -52,7 +52,9 @@ ActiveRecord::Schema.define(version: 2022_12_11_011803) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "bookmarks", force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
+    t.integer "teacher_id"
+    t.integer "item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

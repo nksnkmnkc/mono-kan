@@ -26,7 +26,7 @@ end
 
 scope module: :public do
   resources :items,only: [:index,:show] do
-   resource :bookmarks, only: [:create, :destroy]
+   resource :favorites, only: [:create, :destroy]
   get "searches"=>"items#searches"
   get "search_word" => "items#search_word"
   end

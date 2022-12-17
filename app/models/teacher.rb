@@ -6,7 +6,7 @@ class Teacher < ApplicationRecord
 
   #アソシエーション
   has_many :utilizations, dependent: :destroy #使用
-  has_many :bookmarks, dependent: :destroy #ブックマーク
+  has_many :favorites, dependent: :destroy #お気に入り
 
   #バリテーション
   validates :name, presence:true, length: { minimum: 1, maximum: 20 }
