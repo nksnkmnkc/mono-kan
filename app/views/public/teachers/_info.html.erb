@@ -6,6 +6,7 @@
   </tr>
 </table>
 
+<!--ログインティーチャーの詳細ページのみ編集するボタンを表示-->
   <% if teacher.name != "ゲスト" %>
   <div class="row">
     <%= link_to "編集する", teachers_information_edit_path(teacher), class:"btn btn-success" %>

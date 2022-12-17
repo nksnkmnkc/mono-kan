@@ -1,11 +1,15 @@
 class Public::TeachersController < ApplicationController
   before_action :authenticate_teacher!
+  #ログインティーチャーの情報のみ編集可能
   before_action :ensure_guest_teacher, only: [:edit]
 
   #マイページへのアクション
   def show
     @teacher = current_teacher
     @utilizations  = current_teacher.utilizations
+    favorites = Favorite.where(teacher_id: current_teacher.id).pluck(:item_id)
+    @favorite_list = Item.find(favorites)
+    # byebug
   end
 
   #登録情報編集へのアクション
@@ -48,6 +52,10 @@ class Public::TeachersController < ApplicationController
     if @teacher.name == "ゲスト"
       redirect_to teachers_my_page_path(current_teacher) , notice: 'ゲストはプロフィール編集・削除はできません。'
     end
+  end
+
+  def item_params
+    params.require(:item).permit(:genre_id, :name, :memo, :image)
   end
 
 end
