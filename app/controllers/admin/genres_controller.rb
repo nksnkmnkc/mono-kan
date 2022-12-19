@@ -3,8 +3,8 @@ class Admin::GenresController < ApplicationController
 
   #ジャンル一覧へのアクション
   def index
+    @genres = Genre.all
     @genre = Genre.new
-    @genres = Genre.page(params[:page]).per(10)
   end
 
   #ジャンルデータ登録アクション
@@ -14,7 +14,7 @@ class Admin::GenresController < ApplicationController
       flash[:natice] = "ジャンルを登録しました"
       redirect_to request.referer
     else
-      @genres = Genrepage(params[:page]).per(10)
+      @genres = Genre.all
       flash[:notice] = "ジャンル名を入力してください"
       render :index
     end

@@ -1,0 +1,14 @@
+<!--お気に入り機能-->
+   <% if item.favorited_by?(current_teacher) %>
+    <p>
+      <%= link_to item_favorites_path(item), method: :delete, remote: true do %> <!-- remote: true を追加してHTMLリクエストではなく、JavaScriptのリクエストがfavoritesコントローラに送られるようにする。-->
+      ★<%= item.favorites.count %> お気に入り
+      <% end %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to item_favorites_path(item), method: :post, remote: true do %>
+      ☆<%= item.favorites.count %> お気に入り
+      <% end %>
+    </p>
+  <% end %>
