@@ -9,7 +9,7 @@ class Admin::GenresController < ApplicationController
 
   #ジャンルデータ登録アクション
   def create
-    @genre = Genre.new(genre_params)
+    @genre = Genre.new(name: genre_params)
     if @genre.save
       flash[:natice] = "ジャンルを登録しました"
       redirect_to request.referer
@@ -28,7 +28,7 @@ class Admin::GenresController < ApplicationController
   #ジャンル編集を保存するアクション
   def update
     @genre = Genre.find(params[:id])
-    if @genre.update(genre_params)
+    if @genre.update(name: genre_params)
       flash[:notice] = "ジャンル名の変更が完了しました"
       redirect_to admin_genres_path
     else
@@ -41,6 +41,6 @@ class Admin::GenresController < ApplicationController
   private
 
   def genre_params
-    params.require(:genre).permit(:name)
+    params.require(:genre)[:name]
   end
 end

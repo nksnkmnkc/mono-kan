@@ -44,10 +44,8 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
     flash[:notice] = "消耗品の編集が完了しました"
-    redirect_to admin_item_path(@item.id)
+    redirect_to admin_item_path(@item)
   end
-
-
 
   private
 

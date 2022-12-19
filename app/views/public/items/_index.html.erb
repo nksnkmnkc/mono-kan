@@ -1,17 +1,18 @@
 <div class="d-flex flex-wrap items_width " >
-  <% items.each do |item| %>
-    <div class="mx-3 my-3">
-      <%= link_to item_path(item.id), class:'text-dark' do %>
-        <% if item.image.attached? %>
-        <%= image_tag item.get_image(150,80) %>
-        <% else %>
-          <%= image_tag 'no_image', size: "150x80" %>
-        <% end %>
-     <p class="card-title"><%= item.name %></p>
-     <% end %>
-     <div id="favorite_btn_<%= item.id %>">
-      <%= render "favorites/btn", item: item %>
-     </div>
-    </div>
-  <% end %>
-</div>
+          <% @items.each do |item| %>
+            <div class="mx-3 my-3">
+              <%= link_to item_path(item.id), class:'text-dark' do %>
+                <% if item.image.attached? %>
+                <%= image_tag item.get_image(150,80) %>
+                <% else %>
+                  <%= image_tag 'no_image', size: "150x80" %>
+                <% end %>
+              <p class="card-title"><%= item.name %></p>
+              <% end %>
+              <!--お気に入り機能-->
+               <div id="favorite_btn_<%= item.id %>">
+                <%= render "/public/favorites/btn", item: item %>
+               </div>
+            </div>
+          <% end %>
+        </div>

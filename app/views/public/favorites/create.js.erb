@@ -1,2 +1,2 @@
 <!--お気に入りの非同期-->
-(".favorite_btn").html("<%= j(render "favorites/btn", item: @item) %>");
+$("#favorite_btn_<%= @item.id %>").html("<%= j(render "public/favorites/btn", item: @item) %>");

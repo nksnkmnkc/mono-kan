@@ -20,7 +20,7 @@
 
        <!--お気に入り機能-->
          <div id="favorite_btn_<%= @item.id %>">
-          <%= render "favorites/btn", item: @item %>
+          <%= render "/public/favorites/btn", item: @item %>
          </div>
             <div class="row col-md-4 ">
               <%= form_with model: @utilization_item, url: utilizations_path, method: :post do |f| %>
