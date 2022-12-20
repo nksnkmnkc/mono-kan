@@ -20,7 +20,8 @@
       <% end %>
     </tbody>
   </table>
-  <%#= paginate favorites %>
+  <!--ページネーション～kaminari～-->
+  <%= paginate favorites %>
 <% else %>
   <p class="container">お気に入りはありません。</p>
 <% end %>

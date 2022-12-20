@@ -1,7 +1,7 @@
 class Admin::TeachersController < ApplicationController
 
   def index
-    @teachers = Teacher.all.page(params[:page]).per(10)
+    @teachers = Teacher.page(params[:page]).per(10)
   end
 
   def show

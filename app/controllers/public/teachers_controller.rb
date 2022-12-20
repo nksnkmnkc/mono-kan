@@ -7,9 +7,8 @@ class Public::TeachersController < ApplicationController
   def show
     @teacher = current_teacher
     @utilizations  = current_teacher.utilizations
-    favorites = Favorite.where(teacher_id: current_teacher.id).pluck(:item_id)
+    favorites = Favorite.where(teacher_id: current_teacher.id).pluck(:item_id).page(params[:page]).per(5)
     @favorite_list = Item.find(favorites)
-    # byebug
   end
 
   #登録情報編集へのアクション

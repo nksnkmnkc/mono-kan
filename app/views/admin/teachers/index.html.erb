@@ -27,6 +27,9 @@
       </tbody>
      </table>
    </div>
-   <!--<div class="col-5 offset-4"><%#= paginate @teachers, theme: 'bootstrap-5' %></div>-->
-  </div>
+
+  <!--ページネーション～kaminari～-->
+   <div class="col-5 offset-4">
+     <%= paginate @teachers %>
+   </div>
 </div>

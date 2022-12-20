@@ -23,7 +23,7 @@ class Admin::ItemsController < ApplicationController
 
   #消耗品一覧画面へのアクション
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(10)
     @item = Item
   end
 
