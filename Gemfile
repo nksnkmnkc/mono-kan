@@ -65,6 +65,8 @@ gem "enum_help"
 
 gem 'jquery-rails'
 
+gem 'ransack'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

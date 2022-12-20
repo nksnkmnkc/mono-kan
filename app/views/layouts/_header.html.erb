@@ -24,7 +24,7 @@
             <li><%= link_to "消耗品一覧", items_path, class:'nav-link text-white btn btn-outline-secondary' %></li>
             <li><%= link_to "ログアウト", destroy_teacher_session_path, method: :delete, class:'nav-link text-white btn btn-outline-secondary' %></li>
          </ul>
-        <!--<div><%#= render 'layouts/search' %></div>-->
+        <div><%= render 'layouts/search' %></div>
         <!--adminでログインしている時-->
         <% elsif admin_signed_in? %>
          <ul class="navbar-nav ml-auto">
@@ -34,7 +34,7 @@
             <li><%= link_to "ジャンル一覧", admin_genres_path, class:'nav-link text-white btn btn-outline-secondary' %></li>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:'nav-link text-white btn btn-outline-secondary' %></li>
          </ul>
-        <!--<div><%#= render 'layouts/search' %></div>-->
+        <div><%= render 'layouts/search' %></div>
 
         <% else %>
         <!--ログインしていない状態-->
@@ -45,7 +45,7 @@
             <li><%= link_to "ログイン", new_teacher_session_path,  class:'nav-link text-white btn btn-outline-secondary' %></li>
             <li><%= link_to "ゲストログイン（閲覧用）", teachers_guest_sign_in_path, method: :post, class:'nav-link text-white btn btn-outline-secondary' %></li>
          </ul>
-         <!--<div><%#= render 'layouts/search' %></div>-->
+         <div><%= render 'layouts/search' %></div>
         <% end %>
 
       </div>

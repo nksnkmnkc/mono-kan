@@ -15,6 +15,19 @@ class Public::ItemsController < ApplicationController
   end
 
 
+  def searches
+    @genres = Genre.all
+    @search_genre = params[:genre]
+    @items_all = Genre.search_for(@search_genre)
+    @items = Kaminari.paginate_array(Genre.search_for(@search_genre)).page(params[:page]).per(8)
+  end
+
+
+  def search_word
+    @genres = Genre.all
+  end
+
+
 
   private
 

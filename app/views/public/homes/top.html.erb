@@ -1,8 +1,16 @@
 <div class="container mt-4 mb-5 ">
   <div class="row">
-
-    <div class="col-md-2">
-      <%= render '/public/items/genre_form',genres: @genres %>
+     <div class="col-3">
+       <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th class="text-center">ジャンル検索</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render '/public/items/genre_form',genres: @genres %>
+          </tbody>
+        </table>
     </div>
 
     <div class= "col-9">
@@ -15,8 +23,8 @@
       </p>
     </div>
 
-    <div class="rowmt-3">
-      <div class="col-2"></div>
+    <div class="row">
+      <div class="col-3 offset-1"></div>
       <div class="col-3"></div>
       <h2>新着商品</h2>
     </div>

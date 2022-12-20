@@ -1,49 +1,58 @@
 <div class="container m-5">
   <div class="row">
+    <div class="col-3">
+     <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">ジャンル検索</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render 'genre_form',genres: @genres %>
+        </tbody>
+      </table>
+   </div>
 
-     <div class="col-md-2">
-      <%= render 'genre_form',genres: @genres %>
-     </div>
+   <div class="col-md-4 offset-1">
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "300x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "300x200" %>
+      <% end %>
+   </div>
 
-     <div class="col-md-4 offset-1">
-        <% if @item.image.attached? %>
-          <%= image_tag @item.image, size: "300x200" %>
-        <% else %>
-          <%= image_tag 'no_image', size: "300x200" %>
+   <div class="col-md-4 ">
+
+     <h3><%= @item.name %></h3>
+     <p><%= @item.memo %></p>
+
+     <!--お気に入り機能-->
+       <div id="favorite_btn_<%= @item.id %>">
+        <%= render "/public/favorites/btn", item: @item %>
+       </div>
+       
+      <div class="row col-md-4 ">
+        <%= form_with model: @utilization_item, url: utilizations_path, method: :post do |f| %>
+        <!--使用個数選択 -->
+          <%= f.label :item_count, "使用個数" %>
+          <%= f.select :item_count, [1,2,3,4,5,6,7,8,9,10] %>
+        <!-- 使用理由選択 -->
+          <%= f.label :usage_rule, "使用理由" %>
+          <%= f.radio_button :usage_rule, Utilization.usage_rules.key(0) %>
+          <%= f.label :usage_rule, Utilization.usage_rules_i18n[:individual] %>
+          <%= f.radio_button :usage_rule, Utilization.usage_rules.key(1) %>
+          <%= f.label :usage_rule, Utilization.usage_rules_i18n[:classwork] %>
+          <%= f.radio_button :usage_rule, Utilization.usage_rules.key(2) %>
+          <%= f.label :usage_rule, Utilization.usage_rules_i18n[:club_activites] %>
+          <%= f.radio_button :usage_rule, Utilization.usage_rules.key(3) %>
+          <%= f.label :usage_rule, Utilization.usage_rules_i18n[:committee] %>
+          <%= f.radio_button :usage_rule, Utilization.usage_rules.key(4) %>
+          <%= f.label :usage_rule, Utilization.usage_rules_i18n[:event] %>
+
+         <%= f.hidden_field :item_id, value: @item.id %>
+         <%= f.submit "使用報告する", class:'btn btn-success' %>
         <% end %>
-     </div>
-
-     <div class="col-md-4 ">
-
-       <h3><%= @item.name %></h3>
-       <p><%= @item.memo %></p>
-
-       <!--お気に入り機能-->
-         <div id="favorite_btn_<%= @item.id %>">
-          <%= render "/public/favorites/btn", item: @item %>
-         </div>
-            <div class="row col-md-4 ">
-              <%= form_with model: @utilization_item, url: utilizations_path, method: :post do |f| %>
-              <!--使用個数選択 -->
-                <%= f.label :item_count, "使用個数" %>
-                <%= f.select :item_count, [1,2,3,4,5,6,7,8,9,10] %>
-              <!-- 使用理由選択 -->
-                <%= f.label :usage_rule, "使用理由" %>
-                <%= f.radio_button :usage_rule, Utilization.usage_rules.key(0) %>
-                <%= f.label :usage_rule, Utilization.usage_rules_i18n[:individual] %>
-                <%= f.radio_button :usage_rule, Utilization.usage_rules.key(1) %>
-                <%= f.label :usage_rule, Utilization.usage_rules_i18n[:classwork] %>
-                <%= f.radio_button :usage_rule, Utilization.usage_rules.key(2) %>
-                <%= f.label :usage_rule, Utilization.usage_rules_i18n[:club_activites] %>
-                <%= f.radio_button :usage_rule, Utilization.usage_rules.key(3) %>
-                <%= f.label :usage_rule, Utilization.usage_rules_i18n[:committee] %>
-                <%= f.radio_button :usage_rule, Utilization.usage_rules.key(4) %>
-                <%= f.label :usage_rule, Utilization.usage_rules_i18n[:event] %>
-
-               <%= f.hidden_field :item_id, value: @item.id %>
-               <%= f.submit "使用報告する", class:'btn btn-success' %>
-              <% end %>
-            </div>
-    </div>
+      </div>
+  </div>
   </div>
 </div>
