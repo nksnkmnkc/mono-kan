@@ -57,7 +57,6 @@ namespace :admin do
 
   resources :teachers,only: [:index,:show,:edit,:update]
 
-  resources :utilizations,only: [:show]
 
 end
 

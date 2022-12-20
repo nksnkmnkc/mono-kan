@@ -14,7 +14,7 @@ class Admin::TeachersController < ApplicationController
 
   def update
     @teacher = Teacher.find(params[:id])
-    if @teacher.update!(teacher_params)
+    if @teacher.update(teacher_params)
       flash[:notice] = "アカウント情報を更新しました"
       redirect_to admin_teacher_path(@teacher.id)
     else
