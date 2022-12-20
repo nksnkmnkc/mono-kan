@@ -1,6 +1,6 @@
 <div class="container m-5">
   <div class="row">
-    
+
     <%= render 'genre_form',genres: @genres %>
 
      <div class="col-md-4 offset-1">
@@ -12,15 +12,15 @@
      </div>
 
      <div class="col-md-4 ">
-  
+
        <h3><%= @item.name %></h3>
        <p><%= @item.memo %></p>
-  
+
        <!--お気に入り機能-->
          <div id="favorite_btn_<%= @item.id %>">
           <%= render "/public/favorites/btn", item: @item %>
          </div>
-         
+
         <div class="row col-md-4 ">
           <%= form_with model: @utilization_item, url: utilizations_path, method: :post do |f| %>
           <!--使用個数選択 -->
@@ -38,13 +38,13 @@
             <%= f.label :usage_rule, Utilization.usage_rules_i18n[:committee] %>
             <%= f.radio_button :usage_rule, Utilization.usage_rules.key(4) %>
             <%= f.label :usage_rule, Utilization.usage_rules_i18n[:event] %>
-  
+
            <%= f.hidden_field :item_id, value: @item.id %>
            <%= f.submit "使用報告する", class:'btn btn-success' %>
           <% end %>
         </div>
-        
+
     </div>
-    
+
   </div>
 </div>

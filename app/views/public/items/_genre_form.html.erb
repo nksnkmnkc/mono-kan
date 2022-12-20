@@ -9,7 +9,7 @@
       <% genres.each do |genre|%>
         <tr>
           <td>
-            <p class="card-text"><%=genre.name%></p>
+            <%= link_to genre.name, item_searches_path(genre.id, genre: genre.name, model: "genre"), class:"text-dark text-decoration-none" %><!--pathが違う？-->
           </td>
         </tr>
       <% end %>

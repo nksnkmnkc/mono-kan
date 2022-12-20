@@ -1,17 +1,7 @@
 <div class="row d-flex mt-5 ">
   <div class="col-1"></div>
-    <div class="col-2">
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th class="text-center">ジャンル検索</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= render "public/items/genres_form", genres: @genres %>
-        </tbody>
-      </table>
-    </div>
+  
+    <%= render "public/items/genres_form", genres: @genres %>
 
     <div class="col-9">
       <div class="d-flex">
@@ -20,14 +10,18 @@
       </div>
 
       <div class="d-flex flex-wrap items_width">
-        <% @item.each do |items| %>
+        <% @items.each do |item| %>
           <div class="mx-3 my-3">
-            <%= link_to item_path(items) do %>
-            <%= image_tag items.get_image, size: "200x160" %>
+            <%= link_to item_path(item) do %>
+            <%= image_tag item.get_image, size: "200x160" %>
             <% end %><br>
-            <%= items.name %><br>
-            <%= items.memo %>
+            <%= item.name %><br>
+            <%= item.memo %>
           </div>
+          <!--お気に入り機能-->
+         <div id="favorite_btn_<%= item.id %>">
+          <%= render "/public/favorites/btn", item: item %>
+         </div>
         <% end %>
       </div>
 
