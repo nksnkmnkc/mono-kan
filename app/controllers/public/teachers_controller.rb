@@ -7,7 +7,7 @@ class Public::TeachersController < ApplicationController
   def show
     @teacher = current_teacher
     @utilizations  = current_teacher.utilizations
-    favorites = Favorite.where(teacher_id: current_teacher.id).pluck(:item_id).page(params[:page]).per(5)
+    favorites = Favorite.where(teacher_id: current_teacher.id).pluck(:item_id)
     @favorite_list = Item.find(favorites)
   end
 

@@ -1,35 +1,36 @@
 <div class="container">
-  <div class="row">
-   <div class="col-sm-12 col-md-11 col-lg-8 px-5 px-sm-0 mx-auto my-3" >
-    <h3 class="mb-3">先生一覧</h3>
-     <table class='table table-hover'>
-      <thead>
-        <tr class="table-active">
-        <th>先生ID</th>
-         <th>名前</th>
-         <th>ステータス</th>
-        </tr>
-      </thead>
-      <tbody>
-       <% @teachers.each do |teacher| %>
-        <tr>
-          <td><%= teacher.id %></td>
-          <td><%= link_to teacher.name, admin_teacher_path(teacher) %></td>
-          <td>
-           <% if teacher.is_deleted %>
-           <p class="text-muted font-weight-bold">削除済み</p>
-           <% else %>
-           <P class="text-success font-weight-bold">有効</P>
-           <% end %>
-           </td>
-        </tr>
-        <% end %>
-      </tbody>
-     </table>
-   </div>
+  <div class="mt-4">
+    
+     <div class="col-sm-12 col-md-11 col-lg-8 px-5 px-sm-0 mx-auto my-3" >
+        <h3 class="mb-3">先生一覧</h3>
+         <table class='table table-hover'>
+            <thead>
+              <tr class="table-active">
+                <th>先生ID</th>
+                <th>名前</th>
+                <th>ステータス</th>
+              </tr>
+            </thead>
+            <tbody>
+             <% @teachers.each do |teacher| %>
+              <tr>
+                <td><%= teacher.id %></td>
+                <td><%= link_to teacher.name, admin_teacher_path(teacher) %></td>
+                <td>
+                  <% if teacher.is_deleted %>
+                   <p class="text-muted font-weight-bold">削除済み</p>
+                  <% else %>
+                   <P class="text-success font-weight-bold">有効</P>
+                  <% end %>
+                </td>
+              </tr>
+             <% end %>
+            </tbody>
+        </table>
+     </div>
 
   <!--ページネーション～kaminari～-->
-   <div class="col-5 offset-4">
-     <%= paginate @teachers %>
-   </div>
+     <div class="col-5 offset-4">
+       <%= paginate @teachers %>
+     </div>
 </div>

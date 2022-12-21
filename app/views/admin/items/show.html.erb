@@ -1,39 +1,40 @@
 <div class="container">
   <div class="mt-4">
-    <h2>消耗品詳細</h2>
-
-    <!--商品詳細データ-->
-      <div class="row mt-4">
-        <!--商品画像-->
-        <div class="col-md-4">
-          <% if @item.image.attached? %>
-            <%= image_tag @item.image, size: "300x200" %>
-          <% else %>
-            <%= image_tag 'no_image', size: "300x200" %>
-          <% end %>
+    
+    <div class="col-md-8 offset-3">
+      <h3>消耗品詳細</h3>
+      <!--商品詳細データ-->
+        <div class="row mt-4">
+          <!--商品画像-->
+          <div class="col-md-4">
+            <% if @item.image.attached? %>
+              <%= image_tag @item.image, size: "300x200" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "300x200" %>
+            <% end %>
+          </div>
+          <div class="col-md-7">
+            <table class="table table-borderless">
+              <tr>
+                <td>商品名</td>
+                <td><%= @item.name %></td >
+              </tr>
+              <tr>
+                <td>商品詳細</td>
+                <td><%= @item.memo %></td>
+              </tr>
+              <tr>
+                <td>ジャンル</td>
+                <td><%= @item.genre.name %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><%= link_to "編集する", edit_admin_item_path(@item.id) ,class: "btn btn-success" %></td>
+              </tr>
+            </table>
+          </div>
         </div>
-
-        <div class="col-md-7">
-          <table class="table table-borderless">
-            <tr>
-              <td>商品名</td>
-              <td><%= @item.name %></td >
-            </tr>
-            <tr>
-              <td>商品詳細</td>
-              <td><%= @item.memo %></td>
-            </tr>
-            <tr>
-              <td>ジャンル</td>
-              <td><%= @item.genre.name %></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><%= link_to "編集する", edit_admin_item_path(@item.id) ,class: "btn btn-success" %></td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
+    </div>
+    
   </div>
 </div>

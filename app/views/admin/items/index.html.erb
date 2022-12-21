@@ -1,14 +1,12 @@
-<div class="container m-5">
+<div class="container">
   <div class="mt-4">
-    <div class="col-md-auto">
+    <div class="col-md-8 offset-2">
 
       <div class="row mt-4">
-        <div class="col-3">
-          <h2>消耗品一覧</h2>
-        </div>
-        <div class="col-8 text-right">
-          <%= link_to "＋", new_admin_item_path, class:"h1 text-decoration-none text-dark", 'data-turbolinks': false  %>
-        </div>
+        <h3>消耗品一覧</h3>
+          <div class="col-8 text-right">
+            <%= link_to "＋", new_admin_item_path, class:"h1 text-decoration-none text-dark", 'data-turbolinks': false  %>
+          </div>
       </div>
 
       <div class="col-12 mt-4 mb-5">
@@ -17,16 +15,18 @@
             <tr>
               <th>消耗品ID</th>
               <th>商品名</th>
+              <th>商品詳細文</th>
               <th>ジャンル</th>
             </tr>
           </thead>
           <tbody>
-          <% @items.each do |item|%>
-          <tr>
-           <td><%= item.id %></td>
-           <td ><%= link_to item.name, admin_item_path(item.id),class:"text-dark" %></td>
-           <td><%= item.genre.name %></td>
-         <%end%>
+            <% @items.each do |item|%>
+              <tr>
+               <td><%= item.id %></td>
+               <td><%= link_to item.name, admin_item_path(item.id), class:"text-dark" %></td>
+               <td><%= item.memo %></td>
+               <td><%= item.genre.name %></td>
+            <% end %>
          </tbody>
        </table>
      </div>
