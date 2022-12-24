@@ -26,7 +26,9 @@ Rails.application.routes.draw do
     get "items/searches/:genre_id",to: "items#searches",as:"item_searches"
     resources :items,only: [:index,:show] do
       resource :favorites, only: [:create, :destroy]
-      get "search_word" => "items#search_word"
+      collection do
+        get "search_word" => "items#search_word"
+      end
     end
 
     get "teachers/my_page",to: "teachers#show"

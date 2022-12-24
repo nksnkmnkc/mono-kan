@@ -3,12 +3,10 @@ class ApplicationController < ActionController::Base
 
 
   def search
-   #@q = Item.ransack(params[:q])
-   #@item = @q.result(distinct: true)
    if params[:keyword]
     @items = Item.where('name like ?',"%#{params[:keyword]}%")
-   else 
-    @items = Item.all 
+   else
+    @items = Item.all.order(created_at: :desc)
    end
    @items = @items.page(params[:page]).per(8)
   end

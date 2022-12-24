@@ -20,7 +20,7 @@
         <!--teacherでログインしている時-->
         <% if teacher_signed_in? %>
          <ul class="navbar-nav ml-auto">
-            <li><%= link_to "マイページ", teachers_my_page_path(current_teacher), class:'nav-link text-white btn btn-outline-secondary' %></li>
+            <li><%= link_to "マイページ", teachers_my_page_path, class:'nav-link text-white btn btn-outline-secondary' %></li>
             <li><%= link_to "消耗品一覧", items_path, class:'nav-link text-white btn btn-outline-secondary' %></li>
             <li><%= link_to "ログアウト", destroy_teacher_session_path, method: :delete, class:'nav-link text-white btn btn-outline-secondary' %></li>
          </ul>

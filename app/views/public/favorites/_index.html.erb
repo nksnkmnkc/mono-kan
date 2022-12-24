@@ -1,6 +1,6 @@
 <% if @teacher == current_teacher %>
   <h3>お気に入り一覧</h3>
-    <% if @favorite_list.present? %>
+    <% if @favorite_items.present? %>
       <table class = "table table-hover table-inverse text-center">
         <thead>
           <tr>
@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @favorite_list.each do |item| %>
+          <% @favorite_items.each do |item| %>
             <tr>
               <td><%= image_tag item.image, size: "50x50" %></td>
               <td><%= link_to item.name, item_path(item) %></td>
@@ -22,7 +22,7 @@
         </tbody>
       </table>
       <!--ページネーション～kaminari～-->
-      <%#= paginate favorites %>
+      <%= paginate favorites %>
     <% else %>
       <p class="container">お気に入りはありません。</p>
     <% end %>

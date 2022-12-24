@@ -25,6 +25,7 @@ class Public::ItemsController < ApplicationController
 
   def search_word
     @genres = Genre.all
+    @search_word = params[:keyword]
   end
 
 

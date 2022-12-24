@@ -1,7 +1,7 @@
 <!--検索フォーム-->
 <!--name_contは、あいまい検索を指定-->
 
-<%= form_with class:"search-form", method: :get do |f| %>
+<%= form_with url: search_word_items_path, class:"search-form", method: :get do |f| %>
 <%= f.text_field :keyword, class:"border border-white", placeholder: "検索" %>
 <%= f.submit "検索", class:"search-button" %>
 <% end %>
