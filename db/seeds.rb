@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#Admin.Mdel
+#Admin.Model
 Admin.create!(
     email: 'gim@gim.com',
     password: '123456'
