@@ -31,15 +31,15 @@
           </div>
 
           <div>
-            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(0) %>
-            <%= f.label :usage_rule, Utilization.usage_rules_i18n[:individual] %>
-            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(1) %>
+            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(0), required: true %>
+            <%= f.label :usage_rule, Utilization.usage_rules_i18n[:individual]%>
+            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(1), required: true %>
             <%= f.label :usage_rule, Utilization.usage_rules_i18n[:classwork] %>
-            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(2) %>
+            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(2), required: true %>
             <%= f.label :usage_rule, Utilization.usage_rules_i18n[:club_activites] %>
-            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(3) %>
+            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(3), required: true %>
             <%= f.label :usage_rule, Utilization.usage_rules_i18n[:committee] %>
-            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(4) %>
+            <%= f.radio_button :usage_rule, Utilization.usage_rules.key(4), required: true %>
             <%= f.label :usage_rule, Utilization.usage_rules_i18n[:event] %>
             <%= f.hidden_field :item_id, value: @item.id %>
           </div>
