@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5">
   <div class="row">
-    
+
     <%= render "public/items/genre_form", genres: @genres %>
 
      <div class="col-10">
@@ -8,6 +8,6 @@
        <br>
        <%= render 'index',items: @items %>
      </div>
-
+      <%= paginate @items %>
   </div>
 </div>
