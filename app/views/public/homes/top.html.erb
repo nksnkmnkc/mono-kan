@@ -23,7 +23,11 @@
       <div class="col-md-10 offset-2 ">
         <%= render '/public/items/index',items: @items %>
       </div>
+      <!--ページネーション～kaminari～-->
+      <div class="col-2 offset-5">
+        <%= paginate @items %>
+      </div>
     </div>
-    <%= paginate @items %>
+    
   </div>
 </div>

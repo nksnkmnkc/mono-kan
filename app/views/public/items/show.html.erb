@@ -1,7 +1,7 @@
 <div class="container m-5">
   <div class="row">
 
-    <%= render 'genre_form',genres: @genres %>
+    <%= render 'genre_form', genres: @genres %>
 
      <div class="col-md-4 offset-1">
         <% if @item.image.attached? %>
@@ -25,7 +25,6 @@
           <%= f.label :item_count, "使用個数" %>
           <%= f.select :item_count, [1,2,3,4,5,6,7,8,9,10] %>
 
-
           <div class="mt-3">
             <!-- 使用理由選択 -->
             <%= f.label :usage_rule, "使用理由" %>
@@ -46,7 +45,7 @@
           </div>
 
           <div class="mt-4">
-            <%= f.submit "使用報告する", class:'btn btn-success' %>
+            <%= f.submit "使用報告する", class:"btn btn-success" %>
           </div>
         <% end %>
     </div>
