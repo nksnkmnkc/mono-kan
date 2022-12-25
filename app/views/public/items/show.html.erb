@@ -43,10 +43,10 @@
           <%= f.label :usage_rule, Utilization.usage_rules_i18n[:committee] %>
           <%= f.radio_button :usage_rule, Utilization.usage_rules.key(4) %>
           <%= f.label :usage_rule, Utilization.usage_rules_i18n[:event] %>
+          <%= f.hidden_field :item_id, value: @item.id %>
        </div>
 
        <div class="mt-4">
-         <%= f.hidden_field :item_id, value: @item.id %>
          <%= f.submit "使用報告する", class:'btn btn-success' %>
         <% end %>
        </div>
